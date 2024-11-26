@@ -10,9 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/utils.h"
-
-int	print_hex(unsigned int i)
+static void	ft_strlen(char *s)
 {
-	
+
+}
+
+int	print_hex(unsigned int d, char c)
+{
+	int		digit;
+	char	*print;
+
+	digit = 0;
+	if (c == 'x')
+	{
+
+	}
 }

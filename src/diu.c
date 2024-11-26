@@ -10,9 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/utils.h"
 #include <unistd.h>
 #include <limits.h>
+
+static void	ft_putchar(int c)
+{
+	write(1, &c, 1);
+}
+
+static long	digit_counter(long n)
+{
+	int	i;
+
+	i = 0;
+	if (n == INT_MIN)
+		return (11);
+	if (n < 0)
+	{
+		i++;
+		n = -n;
+	}
+	else if (n == 0)
+		return (1);
+	if (n > 0)
+	{
+		while (n != 0)
+		{
+			n = n / 10;
+			i++;
+		}
+	}
+	return (i);
+}
 
 int	print_int(int n)
 {
