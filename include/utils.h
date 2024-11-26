@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   xXP.c                                              :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muokcan <muokcan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 15:12:07 by muokcan           #+#    #+#             */
-/*   Updated: 2024/11/25 15:12:07 by muokcan          ###   ########.fr       */
+/*   Created: 2024/11/26 16:21:14 by muokcan           #+#    #+#             */
+/*   Updated: 2024/11/26 16:21:14 by muokcan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/utils.h"
+#ifndef UTILS_H
+# define UTILS_H
 
-int	print_hex(unsigned int i)
-{
-	
-}
+void	ft_putchar(char c);
+long	digit_counter(long n);
+
+#endif

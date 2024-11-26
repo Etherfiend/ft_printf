@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../include/ft_printf.h"
 #include <stdarg.h>
 
 static int	detect(char c, va_list args)
@@ -21,10 +21,14 @@ static int	detect(char c, va_list args)
 		return (print_str(va_arg(args, char *)));
 	else if (c == 'p')
 		return (print_str(va_arg(args, char *)));
-	else if (c == 'i' || c == 'd')
+	else if (c == 'd' || c == 'i')
 		return (print_int(va_arg(args, int)));
 	else if (c == 'u')
 		return (print_unsignedint(va_arg(args, unsigned int)));
+	else if (c == 'x')
+		return ();
+	else if (c == 'X')
+		return ();
 	return (-1);
 }
 
@@ -32,6 +36,7 @@ int	ft_printf(char *str, ...)
 {
 	va_list args;
 	int	res;
+	int	temp;
 
 	va_start(args, str);
 	res = 0;
@@ -40,7 +45,10 @@ int	ft_printf(char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			res += detect(*str, args);
+			temp = detect(*str, args);
+			if (temp == -1)
+				return (-1);
+			res += temp;
 		}
 		else
 			res += print_char(*str);
