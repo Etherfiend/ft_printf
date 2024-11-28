@@ -3,9 +3,9 @@
 
 int main()
 {
-	int STD = printf("Hello %s %s %d %u %%%% World", "AAAA", "alp", 123, -42);
+	int STD = printf("%x ve %X", 14, 17);
 	printf("\n");
-	int MY = ft_printf("Hello %s %s %d %u %%%% World", "AAAA", "alp", 123, -42);
+	int MY = ft_printf("%x ve %X", 14, 17);
 
 	printf("%d || %d", STD, MY);
 }

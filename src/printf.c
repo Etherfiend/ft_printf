@@ -12,12 +12,15 @@
 
 #include "../include/ft_printf.h"
 #include <stdarg.h>
+#include <unistd.h>
 
 static int	detect(char c, va_list args)
 {
 	if (c == '%')
 		return (print_str("%"));
-	else if (c == 'c' || c == 's')
+	else if (c == 'c')
+		return (print_char(va_arg(args, int)));
+	else if (c == 's')
 		return (print_str(va_arg(args, char *)));
 	else if (c == 'p')
 		return (print_str(va_arg(args, char *)));
@@ -25,35 +28,43 @@ static int	detect(char c, va_list args)
 		return (print_int(va_arg(args, int)));
 	else if (c == 'u')
 		return (print_unsignedint(va_arg(args, unsigned int)));
-/*	else if (c == 'x')
-		return ();
-	else if (c == 'X')
-		return (); */
+	else if (c == 'x' || c == 'X')
+		return (print_hex(va_arg(args, unsigned int), c));
 	return (-1);
+}
+
+static int	ft_print(char *str, va_list args)
+{
+	int	result;
+	int	temp;
+
+	result = 0;
+	while (*str)
+	{
+		if (*str == '%')
+		{
+			str++;
+			temp = detect(*str, args); 
+			if (temp == -1)
+				return (-1);
+			result += temp;
+		}
+		else
+			result += print_char(*str);
+		str++;
+	}
+	return (result);
 }
 
 int	ft_printf(char *str, ...)
 {
 	va_list args;
 	int		res;
-	int		temp;
 
+	if (!str)
+		return (-1);
 	va_start(args, str);
-	res = 0;
-	while (*str)
-	{
-		if (*str == '%')
-		{
-			str++;
-			temp = detect(*str, args);
-			if (temp == -1)
-				return (-1);
-			res += temp;
-		}
-		else
-			res += print_char(*str);
-		str++;
-	}
+	res = ft_print(str, args);
 	va_end(args);
 	return (res);
 }
