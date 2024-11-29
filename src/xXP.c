@@ -49,7 +49,7 @@ int	print_ptr(void *p)
 	if (!p)
 	{
 		print_str("(nil)");
-		return (-1);
+		return (5);
 	}
 	ft_putchar('0');
 	ft_putchar('x');

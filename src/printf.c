@@ -56,7 +56,7 @@ static int	ft_print(char *str, va_list args)
 	return (result);
 }
 
-int	ft_printf(char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		res;
@@ -64,7 +64,7 @@ int	ft_printf(char *str, ...)
 	if (!str)
 		return (-1);
 	va_start(args, str);
-	res = ft_print(str, args);
+	res = ft_print((char *)str, args);
 	va_end(args);
 	return (res);
 }

@@ -21,11 +21,13 @@ int	print_str(char *s)
 {
 	int	i;
 
+	if (!s)
+		return (write(1, "(null)", 6));
 	i = 0;
 	while (s[i])
 	{
 		print_char(s[i]);
 		i++;
-	}	
+	}
 	return (i);
 }
