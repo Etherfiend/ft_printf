@@ -3,9 +3,7 @@
 
 int main()
 {
-	int STD = printf("%x ve %X", 14, 17);
-	printf("\n");
-	int MY = ft_printf("%x ve %X", 14, 17);
-
-	printf("%d || %d", STD, MY);
+	char *s = "hello world";
+	printf("%d\n", ft_printf("%p\n", s));
+	printf("%d\n", printf("%p\n", s));
 }

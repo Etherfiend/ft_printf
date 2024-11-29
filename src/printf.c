@@ -23,13 +23,13 @@ static int	detect(char c, va_list args)
 	else if (c == 's')
 		return (print_str(va_arg(args, char *)));
 	else if (c == 'p')
-		return (print_str(va_arg(args, char *)));
+		return (print_ptr(va_arg(args, void *)));
 	else if (c == 'd' || c == 'i')
 		return (print_int(va_arg(args, int)));
 	else if (c == 'u')
 		return (print_unsignedint(va_arg(args, unsigned int)));
 	else if (c == 'x' || c == 'X')
-		return (print_hex(va_arg(args, unsigned int), c));
+		return (print_hex(va_arg(args, unsigned long), c));
 	return (-1);
 }
 

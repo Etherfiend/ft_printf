@@ -18,6 +18,7 @@ int	print_char(char c);
 int	print_str(char *c);
 int	print_int(int n);
 int	print_unsignedint(unsigned int d);
-int	print_hex(unsigned int d, char c);
+int	print_hex(unsigned long d, char c);
+int	print_ptr(void *p);
 
 #endif
