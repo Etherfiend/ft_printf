@@ -14,15 +14,15 @@
 
 int	print_char(char c)
 {
-	return(write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
-int print_str(char *s)
+int	print_str(char *s)
 {
 	int	i;
 
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		print_char(s[i]);
 		i++;

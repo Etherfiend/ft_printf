@@ -44,7 +44,7 @@ static int	ft_print(char *str, va_list args)
 		if (*str == '%')
 		{
 			str++;
-			temp = detect(*str, args); 
+			temp = detect(*str, args);
 			if (temp == -1)
 				return (-1);
 			result += temp;
@@ -58,7 +58,7 @@ static int	ft_print(char *str, va_list args)
 
 int	ft_printf(char *str, ...)
 {
-	va_list args;
+	va_list	args;
 	int		res;
 
 	if (!str)

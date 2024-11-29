@@ -34,7 +34,7 @@ int	print_hex(unsigned long d, char c)
 	temp = d % 16;
 	if (temp < 10)
 		ft_putchar(temp + '0');
-	else 
+	else
 	{
 		if (c == 'x')
 			ft_putchar(temp - 10 + 'a');
