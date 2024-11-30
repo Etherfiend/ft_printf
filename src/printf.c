@@ -12,7 +12,6 @@
 
 #include "../include/ft_printf.h"
 #include <stdarg.h>
-#include <unistd.h>
 
 static int	detect(char c, va_list args)
 {
