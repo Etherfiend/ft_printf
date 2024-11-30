@@ -18,7 +18,7 @@ static int	ft_putchar(char c)
 	return (write(1, &c, 1));
 }
 
-int	print_hex(unsigned long d, char c)
+int	print_hex(unsigned int d, char c)
 {
 	int		digit;
 	int		temp;
@@ -44,6 +44,27 @@ int	print_hex(unsigned long d, char c)
 	return (digit + 1);
 }
 
+int	ptr_hex(unsigned long d)
+{
+	int		digit;
+	int		temp;
+
+	digit = 0;
+	if (d == 0)
+	{
+		ft_putchar('0');
+		return (1);
+	}
+	if (d >= 16)
+		digit += ptr_hex(d / 16);
+	temp = d % 16;
+	if (temp < 10)
+		ft_putchar(temp + '0');
+	else
+		ft_putchar(temp - 10 + 'a');
+	return (digit + 1);
+}
+
 int	print_ptr(void *p)
 {
 	if (!p)
@@ -53,5 +74,5 @@ int	print_ptr(void *p)
 	}
 	ft_putchar('0');
 	ft_putchar('x');
-	return (print_hex((unsigned long)p, 'x') + 2);
+	return (ptr_hex((unsigned long)p) + 2);
 }

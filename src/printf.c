@@ -29,7 +29,7 @@ static int	detect(char c, va_list args)
 	else if (c == 'u')
 		return (print_unsignedint(va_arg(args, unsigned int)));
 	else if (c == 'x' || c == 'X')
-		return (print_hex(va_arg(args, unsigned long), c));
+		return (print_hex(va_arg(args, unsigned int), c));
 	return (-1);
 }
 
